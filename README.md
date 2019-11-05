@@ -1,5 +1,5 @@
 # GitJavaVentas
-Actividad de foro semana 1 y 2, colaboradores naviandres, dayanacogaria y mabb1996.
+Actividad de foro semana 1 y 2, colaboradores naviandres, dayanacogaria y mabb2019.
 
 ¿Quiénes son los integrantes del grupo?
 
