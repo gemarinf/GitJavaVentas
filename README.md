@@ -19,6 +19,10 @@ MARÍA ALEJANDRA BOTERO
 Tecnología en ADSI - SENA
 Estudiante del 8 semestre de Ingeniería de Software
 
+Juan Manuel Cancino Trujillo
+Tecnologia en Desarrollo de Software - Politecnico Grancolombiano
+Estudiante del 8 semestre de Ingeniería de Software
+
 
 Estructuración del software, explicada en un documento no menor a 3 párrafos, ni mayor a 6.
 
@@ -30,5 +34,5 @@ cual cuenta con 3 commits en la rama master
 •	 18862cf base datos
 •	 43621fe proyecto web
 •	 f3b8036 Carpeta
-Usuarios GitHub: Gemarinf, Dayanacogaria, Naviandres y mabb2019.
+Usuarios GitHub: Gemarinf, Dayanacogaria, Naviandres y mabb2019, kel3born.
  
