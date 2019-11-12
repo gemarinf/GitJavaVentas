@@ -21,4 +21,7 @@
 	<bean id="dao" class="com.cloudsrcsoft.dao.EmpDao">
 		<property name="template" ref="jt"></property>
 	</bean>
+	<bean id="daoProd" class="com.cloudsrcsoft.dao.ProductoDao">
+		<property name="template" ref="jt"></property>
+	</bean>
 </beans>
