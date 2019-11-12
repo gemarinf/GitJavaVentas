@@ -19,7 +19,7 @@ MARÍA ALEJANDRA BOTERO
 Tecnología en ADSI - SENA
 Estudiante del 8 semestre de Ingeniería de Software
 
-Juan Manuel Cancino Trujillo
+JUAN MANUEL CANCINO TRUJILLO
 Tecnologia en Desarrollo de Software - Politecnico Grancolombiano
 Estudiante del 8 semestre de Ingeniería de Software
 
