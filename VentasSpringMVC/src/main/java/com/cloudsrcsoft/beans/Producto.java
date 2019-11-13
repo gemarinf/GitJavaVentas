@@ -19,7 +19,7 @@ public class Producto {
     private BigDecimal pDTPrecio;
     private int pDTCantidad;
     private BigDecimal pDTPeso;
-    private String pDTTamaño;
+    private String pDTTamaÃ±o;
 
     public int getPKPDTProducto() {
         return pKPDTProducto;
@@ -69,12 +69,12 @@ public class Producto {
         this.pDTPeso = pDTPeso;
     }
 
-    public String getPDTTamaño() {
-        return pDTTamaño;
+    public String getPDTTamaÃ±o() {
+        return pDTTamaÃ±o;
     }
 
-    public void setPDTTamaño(String pDTTamaño) {
-        this.pDTTamaño = pDTTamaño;
+    public void setPDTTamaÃ±o(String pDTTamaÃ±o) {
+        this.pDTTamaÃ±o = pDTTamaÃ±o;
     }
     
     

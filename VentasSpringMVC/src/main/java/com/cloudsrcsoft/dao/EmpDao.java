@@ -17,14 +17,14 @@ public class EmpDao {
 	}
 
 	public int save(Emp p) {
-		String sql = "insert into persona(name,salary,designation) values('" + p.getName() + "'," + p.getSalary()
-				+ ",'" + p.getDesignation() + "')";
+		String sql = "insert into persona(nombre, apellido,correo,direccion,tipodoc,documento) values('" + p.getNombres() + "'," + p.getApellido()
+				+ ",'" + p.getCorreo() + "','"+p.getDireccion()+"','"+p.getTipodoc()+"','"+p.getDocumento()+"')";
 		return template.update(sql);
 	}
 
 	public int update(Emp p) {
-		String sql = "update persona set name='" + p.getName() + "', salary=" + p.getSalary() + ", designation='"
-				+ p.getDesignation() + "' where id=" + p.getId() + "";
+		String sql = "update persona set nombre='" + p.getNombres() + "', apellido=" + p.getApellido() + ", correo='"
+				+ p.getCorreo() + "',direccion='"+p.getDireccion()+"',tipodoc='"+p.getTipodoc()+"',documento='"+p.getDocumento()+"' where id=" + p.getId() + "";
 		return template.update(sql);
 	}
 
@@ -43,9 +43,13 @@ public class EmpDao {
 			public Emp mapRow(ResultSet rs, int row) throws SQLException {
 				Emp e = new Emp();
 				e.setId(rs.getInt(1));
-				e.setName(rs.getString(2));
-				e.setSalary(rs.getFloat(4));
-				e.setDesignation(rs.getString(3));
+				e.setNombres(rs.getString(2));
+				e.setApellido(rs.getString(3));
+				e.setCorreo(rs.getString(4));
+                                e.setDireccion(rs.getString(5));
+                                e.setTipodoc(rs.getString(6));
+                                e.setDocumento(rs.getString(7));
+                                
 				return e;
 			}
 		});

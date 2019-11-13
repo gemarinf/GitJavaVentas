@@ -17,15 +17,32 @@
 				<form:form method="post" action="save">
 					<div class="form-group">
 						<label for = "name">Nombre: </label>
-						<form:input path="name" class="form-control"/>
+						<form:input path="nombres" class="form-control"/>
 					</div>
 					<div class="form-group">
-						<label for = "salary">Salario: </label>
-						<form:input path="salary" class="form-control"/>
+						<label for = "salary">Apellido: </label>
+						<form:input path="apellido" class="form-control"/>
 					</div>
 					<div class="form-group">
-						<label for ="designation">Designación</label>
-						<form:input path="designation" class="form-control"/>
+						<label for ="designation">Correo:</label>
+						<form:input path="correo" class="form-control"/>
+					</div>
+                                        <div class="form-group">
+						<label for ="designation">Direccion:</label>
+						<form:input path="direccion" class="form-control"/>
+					</div>
+                                        <div class="form-group">
+						<label for ="designation">Tipo Documento</label>
+                                                <form:select>
+                                                    <form:option value="cc">C.C</form:option>
+                                                    <form:option value="ti">T.I</form:option>
+                                                    <form:option value="rc">R.C</form:option>
+                                                    
+                                                </form:select>
+					</div>
+                                        <div class="form-group">
+						<label for ="designation">Documento</label>
+						<form:input path="documento" class="form-control"/>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Guardar" class="btn btn-success"/>

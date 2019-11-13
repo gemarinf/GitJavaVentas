@@ -20,8 +20,11 @@
 				<tr>
 					<th>Id</th>
 					<th>Nombre</th>
-					<th>Salario</th>
-					<th>Designación</th>
+					<th>apellido</th>
+					<th>correo</th>
+                                        <th>Direccion</th>
+                                        <th>Tipo Doc</th>
+                                        <th>Documento</th>
 					<th>Editar</th>
 					<th>Eliminar</th>
 				</tr>
@@ -30,9 +33,12 @@
 				<c:forEach var="emp" items="${list}">
 					<tr>
 						<td>${emp.id}</td>
-						<td>${emp.name}</td>
-						<td>${emp.salary}</td>
-						<td>${emp.designation}</td>
+						<td>${emp.nombres}</td>
+						<td>${emp.apellido}</td>
+						<td>${emp.correo}</td>
+                                                <td>${emp.direccion}</td>
+                                                <td>${emp.tipodoc}</td>
+                                                <td>${emp.documento}</td>
 						<td><a href="editemp/${emp.id}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-check"></i> Editar</a></td>
 						<td><a href="deleteemp/${emp.id}" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Eliminar</a></td>
 					</tr>
