@@ -33,7 +33,7 @@
 					</div>
                                         <div class="form-group">
 						<label for ="designation">Tipo Documento</label>
-                                                <form:select>
+                                                <form:select path="tipodoc">
                                                     <form:option value="cc">C.C</form:option>
                                                     <form:option value="ti">T.I</form:option>
                                                     <form:option value="rc">R.C</form:option>

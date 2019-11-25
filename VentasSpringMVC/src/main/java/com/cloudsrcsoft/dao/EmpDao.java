@@ -17,13 +17,13 @@ public class EmpDao {
 	}
 
 	public int save(Emp p) {
-		String sql = "insert into persona(nombre, apellido,correo,direccion,tipodoc,documento) values('" + p.getNombres() + "'," + p.getApellido()
-				+ ",'" + p.getCorreo() + "','"+p.getDireccion()+"','"+p.getTipodoc()+"','"+p.getDocumento()+"')";
+		String sql = "insert into persona(nombres, apellido,correo,direccion,tipodoc,documento) values('" + p.getNombres() + "','" + p.getApellido()
+				+ "','" + p.getCorreo() + "','"+p.getDireccion()+"','"+p.getTipodoc()+"','"+p.getDocumento()+"')";
 		return template.update(sql);
 	}
 
 	public int update(Emp p) {
-		String sql = "update persona set nombre='" + p.getNombres() + "', apellido=" + p.getApellido() + ", correo='"
+		String sql = "update persona set nombres='" + p.getNombres() + "', apellido='" + p.getApellido() + "', correo='"
 				+ p.getCorreo() + "',direccion='"+p.getDireccion()+"',tipodoc='"+p.getTipodoc()+"',documento='"+p.getDocumento()+"' where id=" + p.getId() + "";
 		return template.update(sql);
 	}

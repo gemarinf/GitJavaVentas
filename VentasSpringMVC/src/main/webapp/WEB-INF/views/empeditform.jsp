@@ -15,7 +15,7 @@
 			<div class="col-md-6">
 				<h4 class="text-center">Editar Empleado</h4>
 				<hr>
-				<form:form method="post" action="/CRUDSpringMVC/editsave">
+				<form:form method="post" action="/VentasSpringMVC/editsave">
 					<form:hidden path="id" />
 					<div class="form-group">
 						<label for = "name">Nombre: </label>
@@ -35,7 +35,7 @@
 					</div>
                                         <div class="form-group">
 						<label for ="designation">Tipo Documento</label>
-                                                <form:select>
+                                                <form:select path="tipodoc">
                                                     <form:option value="cc">C.C</form:option>
                                                     <form:option value="ti">T.I</form:option>
                                                     <form:option value="rc">R.C</form:option>
