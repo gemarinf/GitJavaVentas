@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `nombres` varchar(255) NOT NULL,
   `apellido` varchar(255) NOT NULL,
   `correo` varchar(255) NOT NULL,
+  `Telefono` varchar(255) NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `tipodoc` varchar(255) DEFAULT NULL,
   `documento` varchar(2555) DEFAULT NULL,
@@ -50,6 +51,7 @@ INSERT INTO `persona` (`Id`, `nombres`, `apellido`, `correo`, `direccion`, `tipo
 (1, 'dayana', 'ccss', 'dayanacogaria@gmail.com', 'calle', 'cc', '1002222'),
 (4, 'prueba', 'ppp', 'dayanacogaria@gmail.com', 'ddddd', 'cc', '333333'),
 (5, 'aaa', 'a', 'aaa', 'a', 'ti', '87654');
+(4, 'Juan Cancino', 'JMC', 'cancinju@gmail.com', 'ddddd', 'cc', '80888756'),
 
 -- --------------------------------------------------------
 
