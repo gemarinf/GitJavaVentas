@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="col-md-6">
-                    <h4 class="text-center">Editar Producto</h4>
+                    <h4 class="text-center">Editar Producto.</h4>
                     <hr/>
                     <form:form method="post" action="/VentasSpringMVC/editsavePro">
                         <form:hidden path="PKPDTProducto" />
