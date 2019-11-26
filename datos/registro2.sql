@@ -51,7 +51,7 @@ INSERT INTO `persona` (`Id`, `nombres`, `apellido`, `correo`, `direccion`, `tipo
 (1, 'dayana', 'ccss', 'dayanacogaria@gmail.com', 'calle', 'cc', '1002222'),
 (4, 'prueba', 'ppp', 'dayanacogaria@gmail.com', 'ddddd', 'cc', '333333'),
 (5, 'aaa', 'a', 'aaa', 'a', 'ti', '87654');
-(4, 'Juan Cancino', 'JMC', 'cancinju@gmail.com', 'ddddd', 'cc', '80888756'),
+
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `tbl_productos` (
   `PDT_Precio` decimal(10,0) NOT NULL,
   `PDT_Cantidad` int(11) NOT NULL,
   `PDT_Peso` decimal(10,0) NOT NULL,
-  `PDT_Tamaño` varchar(255) NOT NULL,
+  `PDT_Tamanio` varchar(255) NOT NULL,
   PRIMARY KEY (`PK_PDT_PRODUCTO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
