@@ -46,8 +46,8 @@
                             <form:input type="number" path="PDTPeso" class="form-control"/>
                         </div>
                         <div class="form-group">
-                            <label for ="PDTTamaño">Tamaño</label>
-                            <form:input path="PDTTamaño" class="form-control"/>
+                            <label for ="PDTTamanio">Tamaño</label>
+                            <form:input path="PDTTamanio" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Editar" class="btn btn-success"/>

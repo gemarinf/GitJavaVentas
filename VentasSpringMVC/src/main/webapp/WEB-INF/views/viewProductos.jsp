@@ -43,7 +43,7 @@
                                     <td>${pro.PDTPrecio}</td>
                                     <td>${pro.PDTCantidad}</td>
                                     <td>${pro.PDTPeso}</td>
-                                    <td>${pro.PDTTamaño}</td>
+                                    <td>${pro.PDTTamanio}</td>
                                     <td><a href="editpro/${pro.PKPDTProducto}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-check"></i> Editar</a></td>
                                     <td><a href="deletepro/${pro.PKPDTProducto}" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Eliminar</a></td>
                                 </tr>
