@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <h4 class="text-center">Agregar Nuevo Producto</h4>
                     <hr>
-                    <form:form method="post" action="saveProducto">
+                    <form:form method="post" action="savePedido">
                         <div class="form-group">
                             <label for = "PDTNombre">Nombre: </label>
                             <form:input path="PDTNombre" class="form-control"/>
