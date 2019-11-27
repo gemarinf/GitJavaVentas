@@ -22,7 +22,7 @@ public class EmpController {
 	public ModelAndView showform() {
 		return new ModelAndView("empform", "command", new Emp());
 	}
-
+        
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("emp") Emp emp) {
 		dao.save(emp);
