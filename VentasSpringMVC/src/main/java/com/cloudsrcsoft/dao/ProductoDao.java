@@ -5,12 +5,13 @@
  */
 package com.cloudsrcsoft.dao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.cloudsrcsoft.beans.Producto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 /**
@@ -42,43 +43,29 @@ public class ProductoDao {
         return template.update(sql);
     }
 
-    public class ProductoRowMapper implements RowMapper<Producto> {
-
-        @Override
-        public Producto mapRow(ResultSet rs, int rowNum) throws SQLException {
-
-            Producto p = new Producto();
-            p.setPKPDTProducto(rs.getInt(1));
-            p.setPDTNombre(rs.getString(2));
-            p.setPDTMarca(rs.getString(3));
-            p.setPDTPrecio(rs.getBigDecimal(4));
-            p.setPDTCantidad(rs.getInt(5));
-            p.setPDTPeso(rs.getBigDecimal(6));
-            p.setPDTTamanio(rs.getString(7));
-            return p;
-
-        }
-    }
+   
 
     public Producto getProducto(int pKPDTProducto) {
         String sql = "SELECT * FROM TBL_Productos WHERE PK_PDT_Producto = ?";
-        return template.queryForObject(sql, new Object[]{pKPDTProducto}, new ProductoRowMapper());
+        return template.queryForObject(sql, new Object[]{pKPDTProducto},  new BeanPropertyRowMapper<Producto>(Producto.class));
 
     }
-
-    public List<Producto> getProductos() {
-        return template.query("SELECT * FROM TBL_Productos", new RowMapper<Producto>() {
-            public Producto mapRow(ResultSet rs, int row) throws SQLException {
-                Producto p = new Producto();
-                p.setPKPDTProducto(rs.getInt(1));
-                p.setPDTNombre(rs.getString(2));
-                p.setPDTMarca(rs.getString(3));
-                p.setPDTPrecio(rs.getBigDecimal(4));
-                p.setPDTCantidad(rs.getInt(5));
-                p.setPDTPeso(rs.getBigDecimal(6));
-                p.setPDTTamanio(rs.getString(7));
-                return p;
-            }
-        });
-    }
+public List<Producto> getProductos() {
+		return template.query("select * from TBL_Productos", new RowMapper<Producto>() {
+			public Producto mapRow(ResultSet rs, int row) throws SQLException {
+				Producto e = new Producto();
+				e.setPKPDTProducto(rs.getInt(1));
+				e.setPDTNombre(rs.getString(2));
+				e.setPDTMarca(rs.getString(3));
+				e.setPDTPrecio(rs.getBigDecimal(4));
+                                e.setPDTCantidad(rs.getInt(5));
+                                e.setPDTPeso(rs.getBigDecimal(6));
+                                e.setPDTTamanio(rs.getString(7));
+                                
+				return e;
+			}
+		});
+	}
+    
+    
 }

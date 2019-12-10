@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gestión Productos</title>
+        <title>Inicio</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
                             <h3 class="panel-title">Pedidos</h3>
                         </div>
                         <div class="panel-body">
-                          <a href="viewpedidos" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
+                          <a href="view_pedido" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
                         </div>
                     </div>
                 </div>

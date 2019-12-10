@@ -5,18 +5,17 @@
  */
 package com.cloudsrcsoft.springmvc;
 
-import com.cloudsrcsoft.beans.Emp;
-import com.cloudsrcsoft.dao.EmpDao;
-import com.cloudsrcsoft.dao.PedidoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.cloudsrcsoft.beans.Pedido;
+import com.cloudsrcsoft.dao.PedidoDao;
+import com.cloudsrcsoft.dao.EmpDao;
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -24,42 +23,57 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Controller
 public class PedidoController {
-    
+   
     @Autowired
-	EmpDao daoE;
-    PedidoDao dao;
+    PedidoDao Pedao;
+   
     
     @RequestMapping("/new_pedido")
 	public ModelAndView showform() {
-		return new ModelAndView("new_pedido", "command", new Pedido());
-	}
-
-    @RequestMapping(value = "/savePedido", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("pedido") Pedido pedido) {
-		dao.savePedido(pedido);
-		return new ModelAndView("redirect:/viewpedido");
-	}
-    @RequestMapping(value = "/editPedido/{id_pedido}")
-	public ModelAndView edit(@PathVariable int id_pedido) {
-		Pedido pedido = dao.getEmpByIdPedido(id_pedido);
-		return new ModelAndView("edit_pedido", "command",pedido );
+		ModelAndView mv = new ModelAndView();
+                
+                mv.addObject("command", new Pedido());
+                mv.addObject("pro", Pedao.getpro());
+                mv.addObject("list", Pedao.getper());
+                
+                mv.setViewName("new_pedido");
+                return mv;
 	}
         
-        @RequestMapping(value = "/editsavePedido", method = RequestMethod.POST)
-	public ModelAndView editsave(@ModelAttribute("pedido") Pedido pedido) {
-		dao.updatePedido(pedido);
-		return new ModelAndView("redirect:/viewpedido");
-                
+        @RequestMapping(value = "/savePedido", method = RequestMethod.POST)
+	public ModelAndView save(@ModelAttribute("pe") Pedido pe) {
+		Pedao.savePedido(pe);
+		return new ModelAndView("redirect:/viewemp");
 	}
-        @RequestMapping(value = "/deletePedido/{id_pedido}", method = RequestMethod.GET)
-	public ModelAndView delete(@PathVariable int id_pedido) {
-		dao.deletePedido(id_pedido);
-		return new ModelAndView("redirect:/viewpedido");
+    
+        @RequestMapping("/view_pedido")
+	public ModelAndView viewpedido() {
+		List<Pedido> list = Pedao.getPedido();
+		return new ModelAndView("view_pedido", "list", list);
 	}
-@RequestMapping("/viewpedido")
-	public ModelAndView viewemp() {
-		List<Pedido> list = dao.getEmployees();
-		return new ModelAndView("viewpedido", "list", list);
+        
+        @RequestMapping(value = "/deletepedido/{id_pedido}", method = RequestMethod.GET)
+	public ModelAndView deletePedido(@PathVariable int id_pedido) {
+		Pedao.delete(id_pedido);
+		return new ModelAndView("redirect:/view_pedido");
 	}
+        @RequestMapping(value = "/editpedido/{id_pedido}")
+	public ModelAndView edit(@PathVariable int id_pedido) {
+            
+		Pedido emp = Pedao.getPedById(id_pedido);
+                ModelAndView mv = new ModelAndView();
+                mv.addObject("pro", Pedao.getpro());
+                mv.addObject("list", Pedao.getper());
+                mv.addObject("command", emp);     
+                mv.setViewName("edit_Pedido");
+                return mv;
+	}
+        
+        @RequestMapping(value = "/editsavePe", method = RequestMethod.POST)
+	public ModelAndView editsave(@ModelAttribute("pe") Pedido pe) {
+		Pedao.update(pe);
+		return new ModelAndView("redirect:/view_pedido");
+	}
+        
         
 }

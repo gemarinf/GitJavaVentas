@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-	<title>CRUD SPRING MVC CON MYSQL</title>
+	<title>Gestion Personas</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="col-md-6">
-			<h4 class="text-center">Lista de Empleados</h4>
+			<h4 class="text-center">Lista de Personas</h4>
 			<hr>
 			<table class="table table-bordered table-striped">
 				<thead>

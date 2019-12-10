@@ -7,6 +7,8 @@ package com.cloudsrcsoft.beans;
 
 import java.math.BigDecimal;
 
+
+
 /**
  *
  * @author dayisboada
@@ -15,10 +17,12 @@ public class Pedido {
     
     private int id_pedido;
     private int id_producto;
-    private int cantidad; 
+    private int cantidad;
     private BigDecimal precio_total;
-    private int id_empleado;
+    private int id_empleado; 
     private String estado;
+    private String producto;
+    private String empleado; 
 
     public int getId_pedido() {
         return id_pedido;
@@ -67,8 +71,21 @@ public class Pedido {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
-    
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public String getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(String empleado) {
+        this.empleado = empleado;
+    }
     
 }
