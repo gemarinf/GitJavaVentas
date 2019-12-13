@@ -56,6 +56,16 @@
                         </div>
                     </div>
                 </div>
+                    <div class="col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Proveedores</h3>
+                        </div>
+                        <div class="panel-body">
+                          <a href="view_proveedor" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
+                        </div>
+                    </div>
+                </div>
                 
                 <!--                <div class="col-md-3" >
                                     <div class="list-group">

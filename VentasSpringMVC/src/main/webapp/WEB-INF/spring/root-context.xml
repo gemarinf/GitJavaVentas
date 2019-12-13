@@ -27,4 +27,8 @@
         <bean id="daoPedido" class="com.cloudsrcsoft.dao.PedidoDao">
 		<property name="template" ref="jt"></property>
 	</bean>
+        <bean id="daoProveedor" class="com.cloudsrcsoft.dao.ProveedorDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+        
 </beans>
