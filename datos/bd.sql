@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-11-2019 a las 04:40:37
+-- Tiempo de generación: 13-12-2019 a las 22:07:11
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -30,7 +30,6 @@ USE `registro`;
 -- Estructura de tabla para la tabla `persona`
 --
 
-DROP TABLE IF EXISTS `persona`;
 CREATE TABLE `persona` (
   `Id` int(11) NOT NULL,
   `nombres` varchar(255) NOT NULL,
@@ -53,25 +52,9 @@ INSERT INTO `persona` (`Id`, `nombres`, `apellido`, `correo`, `direccion`, `tipo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_empresa`
---
-
-DROP TABLE IF EXISTS `tbl_empresa`;
-CREATE TABLE `tbl_empresa` (
-  `id_proveedor` int(11) NOT NULL,
-  `Nombre` varchar(255) NOT NULL,
-  `Nit` varchar(255) NOT NULL,
-  `Telefono` varchar(255) NOT NULL,
-  `correo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_pedidos`
 --
 
-DROP TABLE IF EXISTS `tbl_pedidos`;
 CREATE TABLE `tbl_pedidos` (
   `id_pedido` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
@@ -81,14 +64,20 @@ CREATE TABLE `tbl_pedidos` (
   `estado` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `tbl_pedidos`
+--
+
+INSERT INTO `tbl_pedidos` (`id_pedido`, `id_producto`, `cantidad`, `precio_total`, `id_empleado`, `estado`) VALUES
+(1, 1, 1, '0', 4, 'En Tramite');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_productos`
+-- Estructura de tabla para la tabla `TBL_Productos`
 --
 
-DROP TABLE IF EXISTS `tbl_productos`;
-CREATE TABLE `tbl_productos` (
+CREATE TABLE `TBL_Productos` (
   `PK_PDT_PRODUCTO` int(11) NOT NULL,
   `PDT_Nombre` varchar(255) NOT NULL,
   `PDT_Marca` varchar(255) NOT NULL,
@@ -96,6 +85,27 @@ CREATE TABLE `tbl_productos` (
   `PDT_Cantidad` int(11) NOT NULL,
   `PDT_Peso` decimal(10,0) NOT NULL,
   `PDT_Tamaño` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `TBL_Productos`
+--
+
+INSERT INTO `TBL_Productos` (`PK_PDT_PRODUCTO`, `PDT_Nombre`, `PDT_Marca`, `PDT_Precio`, `PDT_Cantidad`, `PDT_Peso`, `PDT_Tamaño`) VALUES
+(1, 'producto 1', 'marca 1', '200', 2, '23', 'grande');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_proveedor`
+--
+
+CREATE TABLE `tbl_proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `nit` varchar(255) NOT NULL,
+  `telefono` varchar(255) NOT NULL,
+  `correo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -109,22 +119,22 @@ ALTER TABLE `persona`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indices de la tabla `tbl_empresa`
---
-ALTER TABLE `tbl_empresa`
-  ADD PRIMARY KEY (`id_proveedor`);
-
---
 -- Indices de la tabla `tbl_pedidos`
 --
 ALTER TABLE `tbl_pedidos`
   ADD PRIMARY KEY (`id_pedido`);
 
 --
--- Indices de la tabla `tbl_productos`
+-- Indices de la tabla `TBL_Productos`
 --
-ALTER TABLE `tbl_productos`
+ALTER TABLE `TBL_Productos`
   ADD PRIMARY KEY (`PK_PDT_PRODUCTO`);
+
+--
+-- Indices de la tabla `tbl_proveedor`
+--
+ALTER TABLE `tbl_proveedor`
+  ADD PRIMARY KEY (`id_proveedor`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -137,22 +147,22 @@ ALTER TABLE `persona`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_empresa`
---
-ALTER TABLE `tbl_empresa`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `tbl_pedidos`
 --
 ALTER TABLE `tbl_pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_productos`
+-- AUTO_INCREMENT de la tabla `TBL_Productos`
 --
-ALTER TABLE `tbl_productos`
-  MODIFY `PK_PDT_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `TBL_Productos`
+  MODIFY `PK_PDT_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_proveedor`
+--
+ALTER TABLE `tbl_proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
