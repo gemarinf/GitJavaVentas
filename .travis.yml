@@ -15,3 +15,10 @@ cache:
 
 script:
    - mvn -f VentasSpringMVC/pom.xml clean verify -Pdocker
+
+deploy:
+        provider: script
+        script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy
+        skip_celanup: true
+        on:
+                tags: true
