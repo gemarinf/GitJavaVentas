@@ -42,8 +42,9 @@ public class PedidoController {
         
         @RequestMapping(value = "/savePedido", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("pe") Pedido pe) {
-		Pedao.savePedido(pe);
-		return new ModelAndView("redirect:/viewemp");
+                       
+                Pedao.savePedido(pe);
+          	return new ModelAndView("redirect:/view_pedido");
 	}
     
         @RequestMapping("/view_pedido")

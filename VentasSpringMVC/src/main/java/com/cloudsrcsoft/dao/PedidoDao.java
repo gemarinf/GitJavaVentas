@@ -26,10 +26,23 @@ public class PedidoDao {
 	}
     
     public int savePedido(Pedido pe){
-    
+     String estado = pe.getEstado();
+    int id = pe.getId_producto();
+    int cantidad = pe.getCantidad();
+     actualizarcantidad(estado, id,cantidad);
     String sql ="INSERT INTO tbl_pedidos( id_producto, cantidad, precio_total, id_empleado, estado) VALUES ("+pe.getId_producto()+","+pe.getCantidad()+","+pe.getPrecio_total()+","+pe.getId_empleado()+",'"+pe.getEstado()+"')";
-    
+   
     return template.update(sql);
+    
+    }
+    public int actualizarcantidad(String estado, int id, int cantidad){
+        String sql = "";
+           if (estado == "Entregado") {
+             sql ="UPDATE TBL_Productos SET PDT_Cantidad = PDT_Cantidad + "+cantidad+" where PK_PDT_PRODUCTO = "+id+"";
+             template.update(sql);
+        }
+    
+    return 1;
     
     }
     public Pedido getPedById(int id) {
@@ -37,6 +50,10 @@ public class PedidoDao {
 		return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<Pedido>(Pedido.class));
 	}
     public int update(Pedido p) {
+        String estado = p.getEstado();
+         int id = p.getId_producto();
+    int cantidad = p.getCantidad();
+     actualizarcantidad(estado, id,cantidad);
 		String sql = "UPDATE tbl_pedidos SET id_producto="+p.getId_producto()+",cantidad ="+p.getCantidad()+",precio_total="+p.getPrecio_total()+",id_empleado="+p.getId_empleado()+",estado='"+p.getEstado()+"' where id_pedido = "+p.getId_pedido()+"";
 		return template.update(sql);
 	}
