@@ -23,30 +23,39 @@
                 <div class="col-md-6">
                     <h4 class="text-center">Agregar Nuevo Producto</h4>
                     <hr>
-                    <form:form method="post" action="savePedido">
+                    <form:form method="post" action="saveProducto">
                         <div class="form-group">
                             <label for = "PDTNombre">Nombre: </label>
-                            <form:input path="PDTNombre" class="form-control"/>
+                            <form:input path="pDTNombre" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for = "PDTMarca">Marca: </label>
-                            <form:input path="PDTMarca" class="form-control"/>
+                            <form:input path="pDTMarca" class="form-control"/>
+                        </div>
+                         <div class="form-group">
+                            <label for = "PDTMarca">Proveedor:  </label>
+                            <form:select path="fK_Proveedor" class="form-control">
+                               <form:option value="0">Seleccione...</form:option>
+                             <c:forEach var="produ" items="${prod}">
+                             <form:option value="${produ.fK_Proveedor}">${produ.proveedor}</form:option>
+                             </c:forEach>        
+                              </form:select>
                         </div>
                         <div class="form-group">
-                            <label for ="PDTPrecio">Precio</label>
-                            <form:input type="number" path="PDTPrecio" class="form-control"/>
+                            <label for ="PDTPrecio">Precio Unitario</label>
+                            <form:input type="number" path="pDTPrecio" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for ="PDTCantidad">Cantidad</label>
-                            <form:input type="number" path="PDTCantidad" class="form-control"/>
+                            <form:input type="number" path="pDTCantidad" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for ="PDTPeso">Peso</label>
-                            <form:input type="number" path="PDTPeso" class="form-control"/>
+                            <form:input type="number" path="pDTPeso" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for ="PDTTamanio">Tamaño</label>
-                            <form:input path="PDTTamanio" class="form-control"/>
+                            <form:input path="pDTTamanio" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Guardar" class="btn btn-success"/>

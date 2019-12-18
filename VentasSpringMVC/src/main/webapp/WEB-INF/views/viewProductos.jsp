@@ -30,22 +30,24 @@
                                 <th>Cantidad</th>
                                 <th>Peso</th>
                                 <th>Tamaño</th>
-                                <th></th>
-                                <th></th>
+                                 <th>Proveedor</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var="pro" items="${list}">
                                 <tr>
-                                    <td>${pro.PKPDTProducto}</td>
-                                    <td>${pro.PDTNombre}</td>
-                                    <td>${pro.PDTMarca}</td>
-                                    <td>${pro.PDTPrecio}</td>
-                                    <td>${pro.PDTCantidad}</td>
-                                    <td>${pro.PDTPeso}</td>
-                                    <td>${pro.PDTTamanio}</td>
-                                    <td><a href="editpro/${pro.PKPDTProducto}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-check"></i> Editar</a></td>
-                                    <td><a href="deletepro/${pro.PKPDTProducto}" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Eliminar</a></td>
+                                    <td>${pro.pKPDTProducto}</td>
+                                    <td>${pro.pDTNombre}</td>
+                                    <td>${pro.pDTMarca}</td>
+                                    <td>${pro.pDTPrecio}</td>
+                                    <td>${pro.pDTCantidad}</td>
+                                    <td>${pro.pDTPeso}</td>
+                                    <td>${pro.pDTTamanio}</td>
+                                     <td>${pro.proveedor}</td>
+                                    <td><a href="editpro/${pro.pKPDTProducto}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-check"></i> Editar</a></td>
+                                    <td><a href="deletepro/${pro.pKPDTProducto}" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Eliminar</a></td>
                                 </tr>
                             </c:forEach>				
                         </tbody>

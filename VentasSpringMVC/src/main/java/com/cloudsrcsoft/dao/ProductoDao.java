@@ -27,14 +27,15 @@ public class ProductoDao {
     }
 
     public int save(Producto p) {
-        String sql = "INSERT INTO TBL_Productos(PDT_Nombre,PDT_Marca,PDT_Precio,PDT_Cantidad,PDT_Peso,PDT_Tamanio) values('" + p.getPDTNombre() + "','" + p.getPDTMarca()
-                + "'," + p.getPDTPrecio() + "," + p.getPDTCantidad() + "," + p.getPDTPeso() + ",'" + p.getPDTTamanio()+ "')";
+        System.out.println("tamaño-....... ----- "+p.getpDTTamanio());
+        String sql = "INSERT INTO TBL_Productos(PDT_Nombre,PDT_Marca,FK_Proveedor,PDT_Precio,PDT_Cantidad,PDT_Peso,PDT_Tamanio) values('" + p.getpDTNombre() + "','" + p.getpDTMarca()
+                + "',"+p.getfK_Proveedor()+"," + p.getpDTPrecio() + "," + p.getpDTCantidad() + "," + p.getpDTPeso() + ",'" + p.getpDTTamanio()+ "')";
         return template.update(sql);
     }
 
     public int update(Producto p) {
-        String sql = "UPDATE TBL_Productos SET PDT_Nombre='" + p.getPDTNombre() + "', PDT_Marca='" + p.getPDTMarca() + "', PDT_Precio="
-                + p.getPDTPrecio() + ",PDT_Cantidad=" + p.getPDTCantidad() + ",PDT_Peso=" + p.getPDTPeso() + ",PDT_Tamanio='" + p.getPDTTamanio()+ "' WHERE PK_PDT_Producto=" + p.getPKPDTProducto() + "";
+        String sql = "UPDATE TBL_Productos SET PDT_Nombre='" + p.getpDTNombre() + "', PDT_Marca='" + p.getpDTMarca() + "', PDT_Precio="
+                + p.getpDTPrecio() + ",PDT_Cantidad=" + p.getpDTCantidad() + ",PDT_Peso=" + p.getpDTPeso() + ",PDT_Tamanio='" + p.getpDTTamanio()+ "',FK_Proveedor="+p.getfK_Proveedor()+" WHERE PK_PDT_Producto=" + p.getpKPDTProducto() + "";
         return template.update(sql);
     }
 
@@ -51,21 +52,33 @@ public class ProductoDao {
 
     }
 public List<Producto> getProductos() {
-		return template.query("select * from TBL_Productos", new RowMapper<Producto>() {
+		return template.query("select pro.PK_PDT_PRODUCTO,pro.PDT_Nombre,pro.PDT_Marca,pro.PDT_Precio,pro.PDT_Cantidad,pro.PDT_Peso,pro.PDT_Tamanio, concat(p.nombre,' - ',p.nit) as proveedor from TBL_Productos pro inner join tbl_proveedor p on pro.FK_Proveedor = p.id_proveedor ", new RowMapper<Producto>() {
 			public Producto mapRow(ResultSet rs, int row) throws SQLException {
 				Producto e = new Producto();
-				e.setPKPDTProducto(rs.getInt(1));
-				e.setPDTNombre(rs.getString(2));
-				e.setPDTMarca(rs.getString(3));
-				e.setPDTPrecio(rs.getBigDecimal(4));
-                                e.setPDTCantidad(rs.getInt(5));
-                                e.setPDTPeso(rs.getBigDecimal(6));
-                                e.setPDTTamanio(rs.getString(7));
+				e.setpKPDTProducto(rs.getInt(1));
+				e.setpDTNombre(rs.getString(2));
+				e.setpDTMarca(rs.getString(3));
+				e.setpDTPrecio(rs.getBigDecimal(4));
+                                e.setpDTCantidad(rs.getInt(5));
+                                e.setpDTPeso(rs.getBigDecimal(6));
+                                e.setpDTTamanio(rs.getString(7));
+                                e.setProveedor(rs.getString(8));
                                 
 				return e;
 			}
 		});
 	}
     
+public List<Producto> getProveedor() {
+		return template.query("SELECT id_proveedor , concat(nombre, ' - ',nit) as proveedor FROM tbl_proveedor", new RowMapper<Producto>() {
+			public Producto mapRow(ResultSet rs, int row) throws SQLException {
+				Producto e = new Producto();
+				e.setfK_Proveedor(rs.getInt(1));
+                                e.setProveedor(rs.getString(2));
+                                
+				return e;
+			}
+		});
+	}
     
 }

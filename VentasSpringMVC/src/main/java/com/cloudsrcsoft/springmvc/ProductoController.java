@@ -29,7 +29,15 @@ public class ProductoController {
 
     @RequestMapping("/new_producto")
     public ModelAndView showform() {
-        return new ModelAndView("new_producto", "command", new Producto());
+        ModelAndView mv = new ModelAndView();
+                
+                mv.addObject("command", new Producto());
+                mv.addObject("prod", dao.getProveedor());
+           
+                
+                mv.setViewName("new_producto");
+                return mv;
+        
     }
 
     @RequestMapping(value = "/saveProducto", method = RequestMethod.POST)
@@ -47,7 +55,12 @@ public class ProductoController {
     @RequestMapping(value = "/editpro/{pKPDTProducto}")
     public ModelAndView edit(@PathVariable int pKPDTProducto) {
         Producto pro = dao.getProducto(pKPDTProducto);
-        return new ModelAndView("edit_producto", "command", pro);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("produ", dao.getProveedor());
+         mv.addObject("command", pro);
+        mv.setViewName("edit_producto");
+        return mv;
+        
     }
 
     @RequestMapping(value = "/editsavePro", method = RequestMethod.POST)

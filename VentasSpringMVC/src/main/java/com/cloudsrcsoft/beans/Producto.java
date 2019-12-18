@@ -9,74 +9,91 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author Andres
+ * @author dayisboada
  */
 public class Producto {
-
-    private int pKPDTProducto;
+     private int pKPDTProducto;
     private String pDTNombre;
     private String pDTMarca;
     private BigDecimal pDTPrecio;
     private int pDTCantidad;
     private BigDecimal pDTPeso;
     private String pDTTamanio;
+    private int fK_Proveedor;
+    private String proveedor;
 
-    public int getPKPDTProducto() {
+    public int getpKPDTProducto() {
         return pKPDTProducto;
     }
 
-    public void setPKPDTProducto(int pKPDTProducto) {
+    public void setpKPDTProducto(int pKPDTProducto) {
         this.pKPDTProducto = pKPDTProducto;
     }
 
-    public String getPDTNombre() {
+    public String getpDTNombre() {
         return pDTNombre;
     }
 
-    public void setPDTNombre(String pDTNombre) {
+    public void setpDTNombre(String pDTNombre) {
         this.pDTNombre = pDTNombre;
     }
 
-    public String getPDTMarca() {
+    public String getpDTMarca() {
         return pDTMarca;
     }
 
-    public void setPDTMarca(String pDTMarca) {
+    public void setpDTMarca(String pDTMarca) {
         this.pDTMarca = pDTMarca;
     }
 
-    public BigDecimal getPDTPrecio() {
+    public BigDecimal getpDTPrecio() {
         return pDTPrecio;
     }
 
-    public void setPDTPrecio(BigDecimal pDTPrecio) {
+    public void setpDTPrecio(BigDecimal pDTPrecio) {
         this.pDTPrecio = pDTPrecio;
     }
 
-    public int getPDTCantidad() {
+    public int getpDTCantidad() {
         return pDTCantidad;
     }
 
-    public void setPDTCantidad(int pDTCantidad) {
+    public void setpDTCantidad(int pDTCantidad) {
         this.pDTCantidad = pDTCantidad;
     }
 
-    public BigDecimal getPDTPeso() {
+    public BigDecimal getpDTPeso() {
         return pDTPeso;
     }
 
-    public void setPDTPeso(BigDecimal pDTPeso) {
+    public void setpDTPeso(BigDecimal pDTPeso) {
         this.pDTPeso = pDTPeso;
     }
 
-    public String getPDTTamanio() {
+    public String getpDTTamanio() {
         return pDTTamanio;
     }
 
-    public void setPDTTamanio(String pDTTamanio) {
-        this.pDTTamanio= pDTTamanio;
+    public void setpDTTamanio(String pDTTamanio) {
+        this.pDTTamanio = pDTTamanio;
+    }
+
+    public int getfK_Proveedor() {
+        return fK_Proveedor;
+    }
+
+    public void setfK_Proveedor(int fK_Proveedor) {
+        this.fK_Proveedor = fK_Proveedor;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
     
     
-
+    
 }
