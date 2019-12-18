@@ -84,6 +84,7 @@ CREATE TABLE `TBL_Productos` (
   `PDT_Precio` decimal(10,0) NOT NULL,
   `PDT_Cantidad` int(11) NOT NULL,
   `PDT_Peso` decimal(10,0) NOT NULL,
+   `FK_Proveedor` int(11) NOT NULL,
   `PDT_Tamanio` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -91,8 +92,8 @@ CREATE TABLE `TBL_Productos` (
 -- Volcado de datos para la tabla `TBL_Productos`
 --
 
-INSERT INTO `TBL_Productos` (`PK_PDT_PRODUCTO`, `PDT_Nombre`, `PDT_Marca`, `PDT_Precio`, `PDT_Cantidad`, `PDT_Peso`, `PDT_Tamanio`) VALUES
-(1, 'producto 1', 'marca 1', '200', 2, '23', 'grande');
+INSERT INTO `TBL_Productos` (`PK_PDT_PRODUCTO`, `PDT_Nombre`, `PDT_Marca`, `PDT_Precio`, `PDT_Cantidad`, `PDT_Peso`,`FK_Proveedor`,  `PDT_Tamanio`) VALUES
+(1, 'producto 1', 'marca 1', '200', 2, '23', 0,'grande');
 
 -- --------------------------------------------------------
 
