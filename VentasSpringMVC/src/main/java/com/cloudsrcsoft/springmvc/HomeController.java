@@ -1,6 +1,7 @@
 package com.cloudsrcsoft.springmvc;
 
 import com.cloudsrcsoft.beans.Emp;
+import com.cloudsrcsoft.beans.Usuario;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -40,6 +41,6 @@ public class HomeController {
 	
         @RequestMapping("/index")
 	public ModelAndView showform() {
-		return new ModelAndView("index", "command", new Emp());
+		return new ModelAndView("index", "command", new Usuario());
 	}
 }

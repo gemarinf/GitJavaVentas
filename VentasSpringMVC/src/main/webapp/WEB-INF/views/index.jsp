@@ -32,7 +32,30 @@
                             <h3 class="panel-title">Usuarios</h3>
                         </div>
                         <div class="panel-body">
-                          <a href="viewemp" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i>Ir</a>
+                            <div class="col-md-2">
+                                <a href="viewemp" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i>Ir</a>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    Login
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <c:if test="${user.USUUsuario eq 'ADMIN'}">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalU">
+                                        NewUser
+                                    </button>
+                                </c:if>                              
+                            </div>
+                            <div class="col-md-4">
+                                <p>Bienvenido: ${user.USUUsuario}</p>
+                                <c:if test="${message !=  null}">
+                                    <p>
+                                        Mensaje: ${message}
+                                    </p>
+                                </c:if>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -42,44 +65,95 @@
                             <h3 class="panel-title">Productos</h3>
                         </div>
                         <div class="panel-body">
-                          <a href="viewProductos" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
+                            <a href="viewProductos" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
                         </div>
                     </div>
                 </div>
-                 <div class="col-md-4">
+                <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">Pedidos</h3>
                         </div>
                         <div class="panel-body">
-                          <a href="view_pedido" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
+                            <a href="view_pedido" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
                         </div>
                     </div>
                 </div>
-                    <div class="col-md-4">
+                <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">Proveedores</h3>
                         </div>
                         <div class="panel-body">
-                          <a href="view_proveedor" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
+                            <a href="view_proveedor" class="btn btn-success"><i class="glyphicon glyphicon-check"></i>Ir</a>
                         </div>
                     </div>
                 </div>
-                
-                <!--                <div class="col-md-3" >
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item active">
-                                            Opciones
-                                        </a>
-                                        <a href="viewemp" class="list-group-item">Usuarios</a>
-                                        <a href="#" class="list-group-item">Productos</a>
+                <!--login-->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form:form method="post" action="login" >
+                                    <div class="form-group">
+                                        <label for = "USUUsuario">Usuario: </label>
+                                        <form:input path="USUUsuario" class="form-control"/>
                                     </div>
-                                </div>
-                                <div class="col-md-9" >
-                <%--<%@include file="viewemp.jsp" %>--%>
-               
-            </div>-->
+                                    <div class="form-group">
+                                        <label for = "USUPassword">Clave: </label>
+                                        <form:input path="USUPassword" type="password" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <center><input type="submit" value="Login" class="btn btn-success"/></center>
+                                    </div>
+
+                                </form:form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bew usuaio-->
+                <div class="modal fade" id="myModalU" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Nuevo Usuario</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form:form method="post" action="newUser" >
+                                    <div class="form-group">
+                                        <label for = "USUUsuario">Usuario: </label>
+                                        <form:input path="USUUsuario" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for = "USUPassword">Clave: </label>
+                                        <form:input path="USUPassword" type="password" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for = "USUTipo">Tipo: </label>
+                                        <form:input path="USUTipo"  class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <center><input type="submit" value="Guardar" class="btn btn-success"/></center>
+                                    </div>
+                                </form:form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>  
     </body>

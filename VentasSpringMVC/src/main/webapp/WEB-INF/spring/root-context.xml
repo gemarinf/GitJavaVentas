@@ -30,5 +30,8 @@
         <bean id="daoProveedor" class="com.cloudsrcsoft.dao.ProveedorDao">
 		<property name="template" ref="jt"></property>
 	</bean>
+                <bean id="daoUsuario" class="com.cloudsrcsoft.dao.UsuarioDao">
+		<property name="template" ref="jt"></property>
+	</bean>
         
 </beans>

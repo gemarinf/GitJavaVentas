@@ -84,14 +84,14 @@ CREATE TABLE `TBL_Productos` (
   `PDT_Precio` decimal(10,0) NOT NULL,
   `PDT_Cantidad` int(11) NOT NULL,
   `PDT_Peso` decimal(10,0) NOT NULL,
-  `PDT_Tamaño` varchar(255) NOT NULL
+  `PDT_Tamanio` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `TBL_Productos`
 --
 
-INSERT INTO `TBL_Productos` (`PK_PDT_PRODUCTO`, `PDT_Nombre`, `PDT_Marca`, `PDT_Precio`, `PDT_Cantidad`, `PDT_Peso`, `PDT_Tamaño`) VALUES
+INSERT INTO `TBL_Productos` (`PK_PDT_PRODUCTO`, `PDT_Nombre`, `PDT_Marca`, `PDT_Precio`, `PDT_Cantidad`, `PDT_Peso`, `PDT_Tamanio`) VALUES
 (1, 'producto 1', 'marca 1', '200', 2, '23', 'grande');
 
 -- --------------------------------------------------------
@@ -108,6 +108,18 @@ CREATE TABLE `tbl_proveedor` (
   `correo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `tbl_usuarios` (
+  `PK_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `USU_Usuario` varchar(45) DEFAULT NULL,
+  `USU_Password` varchar(45) DEFAULT NULL,
+  `FK_Persona` int(11) DEFAULT NULL,
+  `USU_Tipo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`PK_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `registro`.`tbl_usuarios`(`USU_Usuario`,`USU_Password`,`FK_Persona`,`USU_Tipo`) VALUES ('ADMIN','ADMIN',1,'ADMIN');
 --
 -- Índices para tablas volcadas
 --
